@@ -9,7 +9,17 @@
 <link rel="preload" as="image" href="aula.jpg">
 </head>
 <body class="pagina">
-<a class="hud" href="index.html">↺ Inicio</a>
+<a class="hud" href="inicio.html">↺ Inicio</a>
 <section class="nodo fondo-biblio" id="nombre"><i id="bienvenida"></i><div class="puerta"></div><i class="spr phoebe c"></i><div class="opciones t1"><a class="opcion gate" href="#bienvenida">Continuar</a></div><div class="caja"><span class="nom phoebe">Phoebe</span><p class="t1">¡Bienvenida! ¿Cómo te llamás?</p><p><span class="t2">¡Un gusto, </span><input class="campo" id="campo-nombre" maxlength="18" required pattern=".*\S.*" placeholder="Tu nombre" autocomplete="off"><span class="t2">! Yo soy Phoebe.</span></p><p class="t2">Pasá, las demás miembros ya están dentro.</p><a class="cubre t2" href="sala-1.html"></a><span class="flecha t2"></span></div></section>
+<script>
+/* Música de fondo: esta página le avisa al marco (index.html) si debe sonar o no.
+   La música vive en el marco, por eso no se reinicia al cambiar de escena. */
+(function(){
+  var estado = 'on';
+  function avisar(){ try{ parent.postMessage({musica:estado},'*'); }catch(e){} }
+  avisar();
+  if(estado==='on'){ addEventListener('pointerdown',avisar); addEventListener('keydown',avisar); }
+})();
+</script>
 </body>
 </html>

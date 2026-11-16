@@ -7,7 +7,17 @@
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body class="pagina">
-<a class="hud" href="index.html">↺ Inicio</a>
+<a class="hud" href="inicio.html">↺ Inicio</a>
 <section class="nodo fondo-sala" id="voto-d" data-h="phoebe"><i class="spr nina l"></i><i class="spr phoebe c"></i><i class="spr rei r"></i><div class="tapa mini t-d"><b>🍾</b>El diablo de la botella</div><a class="caja" href="elegir.html"><span class="nom phoebe">Phoebe</span>¡Y a mí me gusta este!</a></section>
+<script>
+/* Música de fondo: esta página le avisa al marco (index.html) si debe sonar o no.
+   La música vive en el marco, por eso no se reinicia al cambiar de escena. */
+(function(){
+  var estado = 'on';
+  function avisar(){ try{ parent.postMessage({musica:estado},'*'); }catch(e){} }
+  avisar();
+  if(estado==='on'){ addEventListener('pointerdown',avisar); addEventListener('keydown',avisar); }
+})();
+</script>
 </body>
 </html>

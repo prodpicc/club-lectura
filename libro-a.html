@@ -7,7 +7,17 @@
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body class="pagina">
-<a class="hud" href="index.html">↺ Inicio</a>
+<a class="hud" href="inicio.html">↺ Inicio</a>
 <section class="nodo fondo-sala" id="libro-a"><div class="velo"></div><div class="hoja"><span class="nota">Base64</span><div class="libro"><h2>Arachne</h2><p>¿Sabes lo que escuché de Amy?<br>A Amy le gustan las arañas.<br>Asquerosas, retorcidas, peludas, feas arañas<br>Por eso no es mi amiga.</p><p>Amy tiene una linda voz al cantar.<br>La escuché cantar mi canción favorita de amor.<br>Cada vez que canta el coro, mi corazón late al ritmo de las palabras.<br>Pero le gustan las arañas.<br>Por eso no es mi amiga.</p><p>Una vez, me lastimé muy mal la pierna.<br>Amy me ayudó a levantarme y me llevó a la enfermería.<br>Intenté no dejar que me tocara.<br>Le gustan las arañas y sus manos probablemente son asquerosas.<br>Por eso no es mi amiga.</p><p>Amy tiene muchos amigos.<br>Siempre la veo hablando con gente.<br>Probablemente hable de arañas.<br>¿Y si a sus amigos les empiezan a gustar también?<br>Por eso no es mi amiga.</p><p>No importa si tiene otros hobbies.<br>No importa si lo mantiene en privado.<br>No importa si no lastima a nadie.</p><p>Es asqueroso.<br>Ella es asquerosa.<br>El mundo está mejor sin amantes de las arañas.</p><p>Y se lo contaré a todos.</p><p class="ultima">TW9uaWth</p></div><label class="placa">¿A quién le pertenece este libro? <input id="dueno-a" required pattern=".*[Mm][Oo][Nn][Ii][Kk][Aa].*" maxlength="30" autocomplete="off" placeholder="Escribí un nombre"></label><a class="opcion listo" href="reaccion-a.html">¡Listo!</a><a class="opcion listo-m" href="reaccion-a-monika.html">¡Listo!</a></div></section>
+<script>
+/* Música de fondo: esta página le avisa al marco (index.html) si debe sonar o no.
+   La música vive en el marco, por eso no se reinicia al cambiar de escena. */
+(function(){
+  var estado = 'on';
+  function avisar(){ try{ parent.postMessage({musica:estado},'*'); }catch(e){} }
+  avisar();
+  if(estado==='on'){ addEventListener('pointerdown',avisar); addEventListener('keydown',avisar); }
+})();
+</script>
 </body>
 </html>

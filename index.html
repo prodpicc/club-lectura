@@ -4,24 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Club de Lectura ♡</title>
-<link rel="stylesheet" href="estilos.css">
-<link rel="preload" as="image" href="puerta-abierta.png">
-<link rel="preload" as="image" href="aula.jpg">
+<style>
+html,body{margin:0;height:100%;background:#2a1226;overflow:hidden}
+iframe{position:fixed;inset:0;width:100%;height:100%;border:0}
+</style>
 </head>
-<body class="pagina">
-<a class="hud" href="index.html">↺ Inicio</a>
-<section class="nodo fondo-biblio" id="inicio"><h1 class="titulo">Club de Lectura ♡</h1><p class="pista">▼ Hacé clic en la puerta ▼</p><a class="puerta" href="golpes.html"><span>Sala de lectura</span></a><div class="caja">Estás en la biblioteca, frente a la puerta de la sala de lectura. Hoy es tu primer día en el club.</div></section>
+<body>
+<!-- El juego corre dentro de este marco. Como este documento nunca se recarga,
+     el <audio> sigue sonando sin reiniciarse mientras cambian las escenas. -->
+<iframe name="juego" src="inicio.html" title="Club de Lectura"></iframe>
+<audio id="musica" src="musica.mp3" loop preload="auto"></audio>
 <script>
-/* Clic en la puerta: se abre (imagen 2) y un instante después pasa a la escena siguiente.
-   Sin JavaScript el enlace sigue funcionando igual, solo que sin el instante de puerta abierta. */
-document.querySelectorAll('a.puerta').forEach(function(p){
-  p.addEventListener('click',function(e){
-    if(p.classList.contains('abre'))return;
-    e.preventDefault();
-    p.classList.add('abre');
-    setTimeout(function(){location.href=p.getAttribute('href');},650);
-  });
+var a = document.getElementById('musica');
+a.volume = 0.5;
+var quiere = true;                       // ¿esta escena pide música?
+function sonar(){ if(quiere && a.paused){ a.play().catch(function(){}); } }
+addEventListener('message', function(e){
+  if(!e.data || typeof e.data.musica === 'undefined') return;
+  if(e.data.musica === 'on'){ quiere = true; sonar(); }   // play() sobre algo que ya suena no lo reinicia
+  else { quiere = false; a.pause(); }                     // escenas de Monika: pausa (no se rebobina)
 });
+addEventListener('pointerdown', sonar);
+addEventListener('keydown', sonar);
+sonar();                                 // intenta arrancar ya; el navegador puede exigir un primer clic
 </script>
 </body>
 </html>
