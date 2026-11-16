@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Club de Lectura ♡</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="preload" as="image" href="puerta-abierta.png">
+<link rel="preload" as="image" href="aula.jpg">
+</head>
+<body class="pagina">
+<a class="hud" href="index.html">↺ Inicio</a>
+<section class="nodo fondo-biblio" id="inicio"><h1 class="titulo">Club de Lectura ♡</h1><p class="pista">▼ Hacé clic en la puerta ▼</p><a class="puerta" href="golpes.html"><span>Sala de lectura</span></a><div class="caja">Estás en la biblioteca, frente a la puerta de la sala de lectura. Hoy es tu primer día en el club.</div></section>
+<script>
+/* Clic en la puerta: se abre (imagen 2) y un instante después pasa a la escena siguiente.
+   Sin JavaScript el enlace sigue funcionando igual, solo que sin el instante de puerta abierta. */
+document.querySelectorAll('a.puerta').forEach(function(p){
+  p.addEventListener('click',function(e){
+    if(p.classList.contains('abre'))return;
+    e.preventDefault();
+    p.classList.add('abre');
+    setTimeout(function(){location.href=p.getAttribute('href');},650);
+  });
+});
+</script>
+</body>
+</html>
