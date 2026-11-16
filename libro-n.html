@@ -7,17 +7,7 @@
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body class="pagina">
-<a class="hud" href="inicio.html">↺ Inicio</a>
-<section class="nodo fondo-sala" id="libro-n"><div class="velo"></div><div class="hoja"><span class="nota">Base64</span><div class="libro"><h2>Little Raccoon</h2><p>Sucedió en la oscuridad de la noche mientras cortaba pan para un bocadillo culposo.<br>Mi atención fue atrapada por un mapache que se apresuraba fuera de mi ventana.<br>Esa fue, yo creo, la primera vez que noté mis extrañas tendencias como una humana inusual.<br>Le dí al mapache un pedazo de pan, mi subconsciente al tanto de las consecuencias.<br>Al tanto de que un mapache alimentado siempre volverá por más.<br>La tentadora belleza de mi cuchillo de corte fue el síntoma.<br>El pan, mi curiosidad hambrienta.<br>El mapache, un impulso.</p><p>La luna incrementa su fase reflejando aún más luz en mi cuchillo de corte.<br>La mismísima luz resplandeciente en los ojos de mi amigo el mapache.<br>Rebano el pan, fresco y suave. El mapache se emociona.<br>O quizás meramente estoy proyectando mis emociones al recientemente satisfecho animal.</p><p>El mapache empezó a seguirme.<br>Podrías decir que nos hemos acostumbrado bastante el uno al otro.<br>El mapache está hambriento más y más seguido, por lo que mi pan siempre es útil.<br>Cada vez que blando mi cuchillo de corte el mapache me muestra su emoción.<br>Una descarga de sangre. Condicionamiento pavloviano clásico. Rebano el pan.</p><p>Y me alimento otra vez.</p><p class="ultima">TW9uaWth</p></div><label class="placa">¿A quién le pertenece este libro? <input id="dueno-n" required pattern=".*[Mm][Oo][Nn][Ii][Kk][Aa].*" maxlength="30" autocomplete="off" placeholder="Escribí un nombre"></label><a class="opcion listo" href="reaccion-n.html">¡Listo!</a><a class="opcion listo-m" href="reaccion-n-monika.html">¡Listo!</a></div></section>
-<script>
-/* Música de fondo: esta página le avisa al marco (index.html) si debe sonar o no.
-   La música vive en el marco, por eso no se reinicia al cambiar de escena. */
-(function(){
-  var estado = 'on';
-  function avisar(){ try{ parent.postMessage({musica:estado},'*'); }catch(e){} }
-  avisar();
-  if(estado==='on'){ addEventListener('pointerdown',avisar); addEventListener('keydown',avisar); }
-})();
-</script>
+<script src="contenido.js"></script>
+<script src="motor.js"></script>
 </body>
 </html>

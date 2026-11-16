@@ -7,17 +7,7 @@
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body class="pagina">
-<a class="hud" href="inicio.html">↺ Inicio</a>
-<section class="nodo fondo-sala" id="voto-n" data-h="nina"><i class="spr nina l"></i><i class="spr phoebe c"></i><i class="spr rei r"></i><div class="tapa mini t-n"><b>🦝</b>Little Raccoon</div><a class="caja" href="voto-d.html"><span class="nom nina">Nina</span>Yo creo que este podría ser interesante.</a></section>
-<script>
-/* Música de fondo: esta página le avisa al marco (index.html) si debe sonar o no.
-   La música vive en el marco, por eso no se reinicia al cambiar de escena. */
-(function(){
-  var estado = 'on';
-  function avisar(){ try{ parent.postMessage({musica:estado},'*'); }catch(e){} }
-  avisar();
-  if(estado==='on'){ addEventListener('pointerdown',avisar); addEventListener('keydown',avisar); }
-})();
-</script>
+<script src="contenido.js"></script>
+<script src="motor.js"></script>
 </body>
 </html>
