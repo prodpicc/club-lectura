@@ -126,12 +126,16 @@ a.tapa:hover{transform:translateY(-1.2vh) scale(1.05)}
 .cartel{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);z-index:3;text-align:center;color:#fff;font-size:clamp(22px,6vh,56px);text-shadow:.4vh .4vh 0 var(--r3);width:min(90vw,700px)}
 .cartel small{display:block;font-size:.5em;margin:1.5vh 0 3vh}
 /* ===== CRÉDITOS (fin.html) =====
-   Fondo negro y texto que sube desde abajo hasta salir por arriba, como un rodillo de créditos. */
+   Fondo negro; los seis créditos quedan centrados y completos en pantalla, apareciendo de a uno. */
 #fin{background:#000}
-.creditos{position:absolute;left:0;right:0;top:100%;display:flex;flex-direction:column;align-items:center;gap:9vh;padding:0 6vw;text-align:center;animation:rodillo 32s linear 1.2s both}
-.credito{display:flex;flex-direction:column;gap:1.4vh}
-.credito b{font-weight:normal;font-size:clamp(13px,2.3vh,22px);letter-spacing:.4em;text-transform:uppercase;color:var(--r2)}
-.credito span{font-size:clamp(24px,5.4vh,50px);color:#fff;text-shadow:.35vh .35vh 0 var(--r3)}
+.creditos{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3.8vh;padding:6vh 6vw;text-align:center}
+.credito{display:flex;flex-direction:column;gap:.8vh;animation:aparece 1.2s both}
+.credito:nth-child(1){animation-delay:.4s}.credito:nth-child(2){animation-delay:1.3s}.credito:nth-child(3){animation-delay:2.2s}
+.credito:nth-child(4){animation-delay:3.1s}.credito:nth-child(5){animation-delay:4s}.credito:nth-child(6){animation-delay:4.9s}
+.credito b{font-weight:normal;font-size:clamp(11px,2vh,20px);letter-spacing:.4em;text-transform:uppercase;color:var(--r2)}
+.credito span{font-size:clamp(18px,4.4vh,46px);line-height:1.15;color:#fff;text-shadow:.3vh .3vh 0 var(--r3)}
+/* Pantallas bajas (celular horizontal): dos columnas para que entre todo */
+@media (max-height:480px){.creditos{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:4vh 4vw}}
 .tarde{animation:aparece .5s 1.3s both}
 
 /* ===== ANIMACIONES ===== */
@@ -146,6 +150,3 @@ a.tapa:hover{transform:translateY(-1.2vh) scale(1.05)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 .alt{position:absolute;left:50%;top:calc(44% + min(26vw,19vh));transform:translateX(-50%);z-index:9;color:#ff9db0;font-size:clamp(12px,2vh,18px);text-decoration:underline;white-space:nowrap;animation:aparece .3s 3s both}
 
-@keyframes rodillo{from{transform:translateY(0)}to{transform:translateY(calc(-100% - 100vh))}}
-/* Sin animaciones (preferencia del sistema): los créditos quedan quietos y centrados */
-@media (prefers-reduced-motion:reduce){.creditos{top:50%;transform:translateY(-50%)}}
